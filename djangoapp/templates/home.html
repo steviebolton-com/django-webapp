@@ -1,10 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3>This is where our home page content goes...<br /></h3>
-
-{% if user.is_authenticated %}
-<a href="{% url 'login' %}">Login</a>
-<h2>You are logged in as {{ user.username }}</h2>
-{% else %}
-<a href="{% url 'home' %}">Home</a>
-<a href="{% url 'signup' %}">Sign Up</a>
-{% endif %} {% endblock %}
+<p>
+  Welcome {% if user.is_authenticated %} {{ user.username }} {% else %} visiter
+  {% endif %}
+</p>
+<strong>Total vistors have signed up</strong>{{ count }} {% endblock %}
